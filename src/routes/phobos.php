@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->namespace('Phobos\Framework\app\Http\Controllers')->group(function() {
+Route::prefix('api')->middleware('auth:api')->namespace('Phobos\Framework\app\Http\Controllers')->group(function() {
     Route::get('me', 'AppController@me');
 
     Route::post('upload', 'AppController@upload');
@@ -34,13 +34,13 @@ Route::middleware('auth:api')->namespace('Phobos\Framework\app\Http\Controllers'
     });
 });
 
-Route::middleware('auth:api')->namespace('App\Http\Controllers')->group(function() {
+Route::prefix('api')->middleware('auth:api')->namespace('App\Http\Controllers')->group(function() {
     Route::post('logout', 'Auth\LoginController@apiLogout');
 });
 
-Route::middleware('api')->get('config', 'Phobos\Framework\app\Http\Controllers\AppController@config');
+Route::prefix('api')->middleware('api')->get('config', 'Phobos\Framework\app\Http\Controllers\AppController@config');
 
-Route::middleware('api')->namespace('App\Http\Controllers')->group(function() {
+Route::prefix('api')->middleware('api')->namespace('App\Http\Controllers')->group(function() {
     Route::post('login', 'Auth\LoginController@apiLogin');
 });
 
