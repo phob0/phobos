@@ -38,7 +38,7 @@ Route::middleware('auth:api')->namespace('App\Http\Controllers')->group(function
     Route::post('logout', 'Auth\LoginController@apiLogout');
 });
 
-Route::get('config', 'AppController@config');
+Route::get('config', 'Phobos\Framework\app\Http\Controllers\AppController@config');
 
 Route::namespace('App\Http\Controllers')->group(function() {
     Route::post('login', 'Auth\LoginController@apiLogin');
