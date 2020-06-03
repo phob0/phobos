@@ -1,0 +1,78 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Models\Dummy;
+use App\Models\PhobosUser;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class {{ class }}
+{
+    use HandlesAuthorization;
+
+    public function before(PhobosUser $user, $ability)
+    {
+        if ($user->isSuperAdmin() || $user->isAdmin()) {
+            return true;
+        }
+    }
+
+    /**
+     * Determine whether the user can view any models.
+     *
+     * @param \App\Models\PhobosUser $user
+     * @return mixed
+     */
+    public function viewAny(PhobosUser $user)
+    {
+        return false;
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param \App\Models\PhobosUser $user
+     * @param \App\Location $model
+     * @return mixed
+     */
+    public function view(PhobosUser $user, Dummy $dummy)
+    {
+        return false;
+    }
+
+    /**
+     * Determine whether the user can create models.
+     *
+     * @param \App\Models\PhobosUser $user
+     * @return mixed
+     */
+    public function create(PhobosUser $user)
+    {
+        return false;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param \App\Models\PhobosUser $user
+     * @param \App\Location $model
+     * @return mixed
+     */
+    public function update(PhobosUser $user, Dummy $dummy)
+    {
+        return false;
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param \App\Models\PhobosUser $user
+     * @param \App\Location $model
+     * @return mixed
+     */
+    public function delete(PhobosUser $user, Dummy $dummy)
+    {
+        return false;
+    }
+
+}

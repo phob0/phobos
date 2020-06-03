@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Phobos\Framework\Editables\EditableResource;
+
+class {{ class }} extends EditableResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        $collection = [
+            'id' => $this->id,
+        ];
+
+        $collection += static::$forList ? [
+            'name' => $this->name,
+        ] : [
+            'name' => $this->translations['name'],
+        ];
+
+        $collection += [
+            'updated_at' => $this->updated_at->toDateTimeString(),
+        ];
+
+        return $collection;
+    }
+}

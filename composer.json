@@ -1,0 +1,27 @@
+{
+    "name": "phobos/framework",
+    "description": "Phobos Framework",
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/passport": "^7.5",
+        "barryvdh/laravel-cors": "^0.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phobos\\Framework\\": "src"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Phobos\\Framework\\PhobosServiceProvider"
+            ]
+        }
+    }
+}

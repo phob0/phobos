@@ -1,0 +1,67 @@
+<?php
+
+
+namespace App\Repositories;
+
+
+use Phobos\Framework\Editables\EditableModel;
+use App\Models\Dummy;
+use DB;
+
+class DummyRepository extends EditableRepository
+{
+    public function find($dummyId, $columns = ['*'])
+    {
+        return Dummy::find($dummyId, $columns);
+    }
+
+    public function list($params)
+    {
+        $query = Dummy::query()->select('dummys.*');
+
+        if (!empty($params['sortBy'])) {
+            $query->orderBy($params['sortBy'], $params['sortOrder'] ?? 'asc');
+        }
+
+        if (!empty($params['filters']['name'])) {
+            $query->whereLike('dummys.name', $params['filters']['name'] . '%');
+        }
+
+        if (!empty($params['filters']['status']) && in_array(EditableModel::STATUS_INACTIVE, $params['filters']['status'])) {
+            if (!in_array(EditableModel::STATUS_ACTIVE, $params['filters']['status'])) {
+                $query->onlyTrashed();
+            } else {
+                $query->withTrashed();
+            }
+        }
+
+        return $query->paginate($params['perPage']);
+    }
+
+    public function create(array $data)
+    {
+        $expId = $data['experience_id'];
+        $record = new Dummy(['name' => $data['name']]);
+
+        $ret = DB::transaction(function () use ($record, $expId) {
+            $record->save();
+            $record->experiences()->attach([$expId]);
+
+            return $record->id;
+        });
+
+        return $ret;
+    }
+
+    public function update(Dummy $dummy, array $data)
+    {
+        $dummy->fill($data);
+
+        return $dummy->push();
+    }
+
+    public function destroy(Dummy $dummy)
+    {
+        return ['success' => boolval($dummy->delete())];
+    }
+}

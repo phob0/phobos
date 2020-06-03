@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Spatie\Translatable\HasTranslations;
+use Phobos\Framework\Editables\EditableModel;
+
+class {{ class }} extends EditableModel
+{
+    use HasTranslations;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    protected $translatable = [
+        'name'
+    ];
+
+    protected $with = [];
+
+}

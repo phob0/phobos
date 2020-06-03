@@ -1,0 +1,90 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Resources\DummyResource;
+use App\Repositories\DummyRepository;
+use App\Models\Dummy;
+use Illuminate\Http\Request;
+use Phobos\Framework\Editables\EditableController;
+
+class {{ class }} extends EditableController
+{
+    protected $defaultSortBy = 'id';
+    protected $defaultSortOrder = 'asc';
+    protected $sortByOptions = [
+        'id' => [],
+    ];
+
+    public function list(DummyRepository $dummyRepository, Request $request)
+    {
+        $this->authorize('viewAny',Dummy::class);
+
+        $params = $this->parseParams($request);
+
+        return DummyResource::withoutTranslations($dummyRepository->list($params))
+            ->additional($this->listAdditionalData($request, $params));
+    }
+
+    public function item(Dummy $dummy)
+    {
+        $this->authorize('view',Dummy::class);
+
+        return DummyResource::make($dummy);
+    }
+
+    public function create(Request $request, DummyRepository $dummyRepository)
+    {
+        $this->authorize('create',Dummy::class);
+
+        $data = $this->validate($request, $this->getRules($request));
+
+        $newId = $dummyRepository->create($data);
+
+        if ($newId) {
+            return [
+                'newRecordId' => $newId,
+            ];
+        }
+
+        return $this->apiError('Could not create record');
+    }
+
+    public function update(Request $request, DummyRepository $dummyRepository, Dummy $dummy)
+    {
+        $this->authorize('update', $dummy);
+
+        $data = $this->validate($request, $this->getRules($request));
+
+        $updated = $dummyRepository->update($dummy, $data);
+
+        if ($updated) {
+            return $this->apiSuccess();
+        }
+
+        return $this->apiError('Could not update record');
+    }
+
+    public function destroy(DummyRepository $dummyRepository, Dummy $dummy)
+    {
+        $this->authorize('delete',$dummy);
+
+        $destroyed = $dummyRepository->destroy($dummy);
+
+        if ($destroyed) {
+            return $this->apiSuccess();
+        }
+
+        return $this->apiError('Could not remove record');
+    }
+
+    /**
+     * @return array
+     */
+    private function getRules()
+    {
+        return [
+            'name' => 'required|string|max:50',
+        ];
+    }
+}
