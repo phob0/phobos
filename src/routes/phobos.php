@@ -16,8 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->namespace('Phobos\Framework\app\Http\Controllers')->group(function() {
     Route::get('me', 'AppController@me');
 
-    Route::post('logout', 'Auth\LoginController@apiLogout');
-
     Route::post('upload', 'AppController@upload');
 
     Route::prefix('settings')->group(function() {
@@ -41,4 +39,4 @@ Route::middleware('auth:api')->group(function() {
 });
 
 Route::get('config', 'AppController@config');
-Route::post('login', 'Auth\LoginController@apiLogin');
+Route::post('login', 'App\Http\Controllers\Auth\LoginController@apiLogin');
