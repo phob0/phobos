@@ -58,6 +58,9 @@ class Install extends Command
         $this->line(' Publishing configs and VueJS/QuasarJS files');
         $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\PhobosServiceProvider"');
 
+        $this->line(' Publishing route provider');
+        $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\RouteServiceProvider"');
+
         $this->line(' Installing VueJS/QuasarJS files');
         $path = base_path('frontend');
         $status = 0;
