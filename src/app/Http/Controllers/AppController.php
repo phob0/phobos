@@ -2,6 +2,7 @@
 
 namespace Phobos\Framework\app\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Phobos\Framework\app\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
