@@ -9,7 +9,7 @@ use Phobos\Framework\app\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
-class SettingsController extends EditableController
+class SettingController extends EditableController
 {
     public function list(SettingsRepository $settingRepository, Request $request)
     {
