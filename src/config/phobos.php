@@ -15,6 +15,8 @@ return [
     // Project name.
     'project_name' => 'Phobos',
 
+    'dynamic_url' => env('DOCKER_URL', env('APP_URL', 'http://localhost')),
+
     'middleware' => [
         'push' => [],
         'prepend' => \Barryvdh\Cors\HandleCors::class

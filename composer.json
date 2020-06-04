@@ -4,7 +4,8 @@
     "minimum-stability": "dev",
     "require": {
         "laravel/passport": "^7.5",
-        "barryvdh/laravel-cors": "^0.11"
+        "barryvdh/laravel-cors": "^0.11",
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "psr-4": {

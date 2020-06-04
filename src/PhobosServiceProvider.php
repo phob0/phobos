@@ -48,6 +48,8 @@ class PhobosServiceProvider extends ServiceProvider
         self::setupCustomCache();
         $this->setupRoutes($this->app->router);
         $this->setupCustomRoutes($this->app->router);
+        $this->setupRootPath();
+        $this->forceHttps();
         $this->registerMiddlewareGroup($this->app->router);
         $this->publishFiles();
     }
@@ -141,11 +143,14 @@ class PhobosServiceProvider extends ServiceProvider
     {
         $phobos_config = [__DIR__.'/config/phobos.php' => config_path()];
         $phobos_auth = [__DIR__.'/config/auth.php' => config_path()];
+        $phobos_cache = [__DIR__.'/config/cache.php' => config_path()];
+
         $phobos_env = [__DIR__.'.env' => base_path()];
         $phobos_custom_routes_file = [__DIR__.$this->customRoutesFilePath => base_path($this->customRoutesFilePath)];
 
         $this->publishes($phobos_config, 'config');
         $this->publishes($phobos_auth, 'config');
+        $this->publishes($phobos_cache, 'config');
         $this->publishes($phobos_env, '');
 
         $this->publishes([
@@ -174,7 +179,7 @@ class PhobosServiceProvider extends ServiceProvider
     private function setupMorphMap()
     {
         Relation::morphMap([
-            'user' => \App\PhobosUser::class,
+            'user' => \App\Models\PhobosUser::class,
         ]);
     }
 
@@ -183,5 +188,17 @@ class PhobosServiceProvider extends ServiceProvider
         Cache::extend('tagged_file', function ($app) {
             return Cache::repository(new TaggedFile($app['files'], $app['config']['cache.stores.tagged_file']['path']));
         });
+    }
+
+    private function setupRootPath()
+    {
+        \URL::forceRootUrl(config('phobos.dynamic_url'));
+    }
+
+    private function forceHttps()
+    {
+        if (strpos(config('phobos.dynamic_url'), 'https://') === 0) {
+            \URL::forceScheme('https');
+        }
     }
 }

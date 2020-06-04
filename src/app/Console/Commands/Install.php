@@ -48,18 +48,9 @@ class Install extends Command
         $this->info(" Phobos\Framework installation started. Please wait...");
         $this->progressBar->advance();
 
-//        $this->line(' Installing phobos/generators');
-//        $this->executeProcess('composer require phobos/generators:"1.2.*" --dev');
-
-//        $this->line(' Installing laracasts/generators');
-//        $this->executeProcess('composer require laracasts/generators:dev-master --dev');
-
         // put --force when publish on git
         $this->line(' Publishing configs and VueJS/QuasarJS files');
         $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\PhobosServiceProvider"');
-
-        $this->line(' Publishing route provider');
-        $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\RouteServiceProvider"');
 
         $this->line(' Installing VueJS/QuasarJS files');
         $path = base_path('frontend');
