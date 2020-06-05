@@ -9,11 +9,11 @@
     },
     "autoload": {
         "files": [
-            "app/helpers.php"
+            "src/app/helpers.php"
         ],
         "psr-4": {
             "Phobos\\Framework\\": "src",
-            "Phobos\\Framework\\App\\": "src/app/"
+            "Phobos\\Framework\\App\\": "src/app"
         }
     },
     "scripts": {
