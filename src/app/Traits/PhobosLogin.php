@@ -1,5 +1,7 @@
 <?php
 
+namespace Phobos\Framework\App\Traits;
+
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 trait PhobosLogin

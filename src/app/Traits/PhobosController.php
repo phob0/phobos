@@ -1,5 +1,7 @@
 <?php
 
+namespace Phobos\Framework\App\Traits;
+
 trait PhobosController
 {
     public function apiSuccess($extra = [])

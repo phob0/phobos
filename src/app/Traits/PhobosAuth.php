@@ -1,5 +1,7 @@
 <?php
 
+namespace Phobos\Framework\App\Traits;
+
 use Laravel\Passport\Passport;
 
 trait PhobosAuth
