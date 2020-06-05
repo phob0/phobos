@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class PhobosLoginController extends Controller
 {
-    private $oauthClientName = 'App Password Grant Client';
+    protected $oauthClientName = 'App Password Grant Client';
 
     /*
     |--------------------------------------------------------------------------

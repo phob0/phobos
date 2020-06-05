@@ -50,7 +50,7 @@ class Install extends Command
 
         // put --force when publish on git
         $this->line(' Publishing configs and VueJS/QuasarJS files');
-        $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\PhobosServiceProvider"');
+        $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\PhobosServiceProvider" --force');
 
         $this->line(' Installing VueJS/QuasarJS files');
         $path = base_path('frontend');
