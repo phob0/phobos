@@ -1,24 +1,25 @@
 <?php
 
+
 namespace Phobos\Framework\App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class PublishPhobosMiddleware extends GeneratorCommand
+class PublishPhobosAppController extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'phobos:publish-middleware';
+    protected $signature = 'phobos:publish-app-controller';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish the ExtractApiTokenFromCookie middleware to App\Http\Middleware\ExtractApiTokenFromCookie';
+    protected $description = 'Publish the AppController to App\Http\Controllers\AppController';
 
     /**
      * Get the stub file for the generator.
@@ -27,7 +28,7 @@ class PublishPhobosMiddleware extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/../../Http/Middleware/ExtractApiTokenFromCookie.php';
+        return __DIR__.'/../../Http/Controllers/AppController.php';
     }
 
     /**
@@ -37,10 +38,10 @@ class PublishPhobosMiddleware extends GeneratorCommand
      */
     public function handle()
     {
-        $destination_path = $this->laravel['path'].'/Http/Middleware/ExtractApiTokenFromCookie.php';
+        $destination_path = $this->laravel['path'].'/Http/Controllers/AppController.php';
 
         if ($this->files->exists($destination_path)) {
-            $this->error('ExtractApiTokenFromCookie middleware already exists!');
+            $this->error('AppController model already exists!');
 
             return false;
         }
@@ -49,7 +50,7 @@ class PublishPhobosMiddleware extends GeneratorCommand
 
         $this->files->put($destination_path, $this->buildClass());
 
-        $this->info($this->laravel->getNamespace().'Http\Middleware\ExtractApiTokenFromCookie.php created successfully.');
+        $this->info($this->laravel->getNamespace().'Http\Controllers\AppController.php created successfully.');
     }
 
     /**
@@ -77,7 +78,11 @@ class PublishPhobosMiddleware extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\App\\', $this->laravel->getNamespace(), $stub);
+        $stub = str_replace('Phobos\Framework\App\Http\Controllers;', $this->laravel->getNamespace().'Http\Controllers;', $stub);
+
+        if (!$this->files->exists($this->laravel['path'].'/Http/Controllers/AppController.php') && $this->files->exists($this->laravel['path'].'/Http/Controllers/AppController.php')) {
+            $stub = str_replace($this->laravel->getNamespace().'User', $this->laravel->getNamespace().'Http\Controller\AppController', $stub);
+        }
 
         return $stub;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Resources;
+namespace Phobos\Framework\App\Resources;
 
 use Phobos\Framework\Editables\EditableResource;
 

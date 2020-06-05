@@ -1,8 +1,8 @@
 <?php
 
-namespace Phobos\Framework\app\Policies;
+namespace Phobos\Framework\App\Policies;
 
-use Phobos\Framework\app\Models\Setting;
+use Phobos\Framework\App\Models\Setting;
 use App\Models\PhobosUser;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

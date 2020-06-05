@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Console\Commands\Presets;
+namespace Phobos\Framework\App\Console\Commands\Presets;
 
 
 class VuePage extends Preset

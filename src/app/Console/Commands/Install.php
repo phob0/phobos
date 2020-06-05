@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Console\Commands;
+namespace Phobos\Framework\App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -59,17 +59,17 @@ class Install extends Command
         exec("cd $path && npm install", $response, $status);
         $this->progressBar->advance();
 
-//        $this->line(' Publishing config for notifications - prologue/alerts');
-//        $this->executeProcess('php artisan vendor:publish --provider="Prologue\Alerts\AlertsServiceProvider"');
-//
 //        $this->line(" Generating users table (using Laravel's default migrations)");
 //        $this->executeProcess('php artisan migrate');
-//
+
         $this->line(" Creating App\Models\PhobosUser.php");
         $this->executeProcess('php artisan phobos:publish-user-model');
 
         $this->line(" Creating App\Models\UserRole.php");
         $this->executeProcess('php artisan phobos:publish-user-role-model');
+
+        $this->line(" Creating App\Http\Controllers\AppController.php");
+        $this->executeProcess('php artisan phobos:publish-app-controller');
 
         $this->line(" Creating App\Http\Middleware\ExtractTokenFromApi.php");
         $this->executeProcess('php artisan phobos:publish-middleware');

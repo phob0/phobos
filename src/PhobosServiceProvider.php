@@ -17,18 +17,19 @@ class PhobosServiceProvider extends ServiceProvider
     public $customRoutesFilePath = '/routes/custom.php';
 
     protected $commands = [
-        \Phobos\Framework\app\Console\Commands\Install::class,
-        \Phobos\Framework\app\Console\Commands\AddRouteContent::class,
-        \Phobos\Framework\app\Console\Commands\CrudPhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudControllerPhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudRepositoryPhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudModelPhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudResourcePhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudPolicyPhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\CrudVuePhobosCommand::class,
-        \Phobos\Framework\app\Console\Commands\PublishPhobosUserModel::class,
-        \Phobos\Framework\app\Console\Commands\PublishPhobosUserRoleModel::class,
-        \Phobos\Framework\app\Console\Commands\PublishPhobosMiddleware::class,
+        \Phobos\Framework\App\Console\Commands\Install::class,
+        \Phobos\Framework\App\Console\Commands\AddRouteContent::class,
+        \Phobos\Framework\App\Console\Commands\CrudPhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudControllerPhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudRepositoryPhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudModelPhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudResourcePhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudPolicyPhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\CrudVuePhobosCommand::class,
+        \Phobos\Framework\App\Console\Commands\PublishPhobosUserModel::class,
+        \Phobos\Framework\App\Console\Commands\PublishPhobosUserRoleModel::class,
+        \Phobos\Framework\App\Console\Commands\PublishPhobosMiddleware::class,
+        \Phobos\Framework\App\Console\Commands\PublishPhobosAppController::class,
     ];
 
     public function boot(\Illuminate\Routing\Router $router)
@@ -179,7 +180,7 @@ class PhobosServiceProvider extends ServiceProvider
     private function setupMorphMap()
     {
         Relation::morphMap([
-            'user' => \App\Models\PhobosUser::class,
+            'users' => \App\Models\PhobosUser::class,
         ]);
     }
 

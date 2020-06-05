@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Traits;
+namespace Phobos\Framework\App\Traits;
 
 
 trait OutputsConsoleData

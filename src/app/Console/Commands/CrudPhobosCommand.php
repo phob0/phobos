@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Console\Commands;
+namespace Phobos\Framework\App\Console\Commands;
 
 use Artisan;
 use Illuminate\Console\Command;

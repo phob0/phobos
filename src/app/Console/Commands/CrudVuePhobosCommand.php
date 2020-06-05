@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Console\Commands;
+namespace Phobos\Framework\App\Console\Commands;
 
 use Illuminate\Console\Command;
 use InvalidArgumentException;
@@ -52,7 +52,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_page()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VuePage(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VuePage(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue page template created successfully.');
@@ -65,7 +65,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_listing_page()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueListingPage(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueListingPage(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue listing template created successfully.');
@@ -78,7 +78,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_store_actions()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueStoreActions(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueStoreActions(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue actions template created successfully.');
@@ -91,7 +91,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_store_index()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueStoreIndex(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueStoreIndex(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue index template created successfully.');
@@ -104,7 +104,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_root_index()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueRootIndex(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueRootIndex(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue index template created successfully.');
@@ -117,7 +117,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_sidemenu()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueSideMenu(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueSideMenu(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue index template created successfully.');
@@ -130,7 +130,7 @@ class CrudVuePhobosCommand extends Command
      */
     protected function vue_routes()
     {
-        $page = new \Phobos\Framework\app\Console\Commands\Presets\VueRoutes(new Filesystem);
+        $page = new \Phobos\Framework\App\Console\Commands\Presets\VueRoutes(new Filesystem);
         $page->create($this->option('name'));
 
         $this->info('Vue index template created successfully.');

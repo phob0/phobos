@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Models;
+namespace Phobos\Framework\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

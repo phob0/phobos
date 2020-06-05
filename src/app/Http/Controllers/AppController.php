@@ -1,9 +1,9 @@
 <?php
 
-namespace Phobos\Framework\app\Http\Controllers;
+namespace Phobos\Framework\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Phobos\Framework\app\Resources\UserResource;
+use Phobos\Framework\App\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

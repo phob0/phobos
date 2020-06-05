@@ -1,10 +1,10 @@
 <?php
 
-namespace Phobos\Framework\app\Http\Controllers;
+namespace Phobos\Framework\App\Http\Controllers;
 
 use Phobos\Framework\Editables\EditableController;
-use Phobos\Framework\app\Resources\UserResource;
-use Phobos\Framework\app\Repositories\UserRepository;
+use Phobos\Framework\App\Resources\UserResource;
+use Phobos\Framework\App\Repositories\UserRepository;
 use App\Models\PhobosUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

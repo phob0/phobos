@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Phobos\Framework\app\Repositories;
+namespace Phobos\Framework\App\Repositories;
 
-use Phobos\Framework\app\Models\Setting;
+use Phobos\Framework\App\Models\Setting;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;

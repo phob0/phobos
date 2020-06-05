@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Resources;
+namespace Phobos\Framework\App\Resources;
 
 use App\Models\PhobosUser;
 use Phobos\Framework\Editables\EditableResource;

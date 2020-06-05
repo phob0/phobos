@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Traits;
+namespace Phobos\Framework\App\Traits;
 
 
 use App\Models\UserRole;
@@ -17,7 +17,7 @@ trait HandlesUserRoles
 
     public function roles()
     {
-        return $this->hasMany(UserRole::class);
+        return $this->hasMany(UserRole::class, 'user_id');
     }
 
     public function isSuperAdmin()
@@ -51,8 +51,7 @@ trait HandlesUserRoles
         $role = $this->isSuperAdmin() ?: ($this->isOrganizer() ?: $this->isGuide());
         if ($role) {
             return [
-                'name' => $role->role,
-                'location_id' => $role->target_type === 'location' ? $role->target_id : 0
+                'name' => $role->role
             ];
         }
 

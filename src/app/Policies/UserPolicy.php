@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Policies;
+namespace Phobos\Framework\App\Policies;
 
 use App\Models\PhobosUser;
 

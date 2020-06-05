@@ -1,9 +1,9 @@
 <?php
 
-namespace Phobos\Framework\app\Models;
+namespace Phobos\Framework\App\Models;
 
 use Phobos\Framework\Editables\EditableModel;
-use App\Traits\HandlesUserRoles;
+use Phobos\Framework\App\Traits\HandlesUserRoles;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -19,6 +19,8 @@ class PhobosUser extends EditableModel implements AuthenticatableContract, Autho
 {
     use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail;
     use HasApiTokens, Notifiable, SoftDeletes, HandlesUserRoles;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

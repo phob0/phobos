@@ -1,11 +1,11 @@
 <?php
 
-namespace Phobos\Framework\app\Http\Controllers;
+namespace Phobos\Framework\App\Http\Controllers;
 
 use Phobos\Framework\Editables\EditableController;
-use Phobos\Framework\app\Resources\SettingResource;
-use Phobos\Framework\app\Repositories\SettingsRepository;
-use Phobos\Framework\app\Models\Setting;
+use Phobos\Framework\App\Resources\SettingResource;
+use Phobos\Framework\App\Repositories\SettingsRepository;
+use Phobos\Framework\App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 

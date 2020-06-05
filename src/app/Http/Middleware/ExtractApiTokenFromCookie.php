@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobos\Framework\app\Http\Middleware;
+namespace Phobos\Framework\App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Crypt;

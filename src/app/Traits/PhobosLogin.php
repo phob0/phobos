@@ -1,15 +1,8 @@
 <?php
 
-namespace Phobos\Framework\app\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
-class PhobosLoginController extends Controller
+trait PhobosLogin
 {
     protected $oauthClientName = 'App Password Grant Client';
 

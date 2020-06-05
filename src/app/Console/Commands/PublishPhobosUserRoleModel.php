@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phobos\Framework\app\Console\Commands;
+namespace Phobos\Framework\App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
@@ -78,7 +78,7 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\app\Models;', $this->laravel->getNamespace().'Models;', $stub);
+        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace().'Models;', $stub);
 
         if (!$this->files->exists($this->laravel['path'].'/UserRole.php') && $this->files->exists($this->laravel['path'].'/Models/UserRole.php')) {
             $stub = str_replace($this->laravel->getNamespace().'UserRole', $this->laravel->getNamespace().'Models\UserRole', $stub);

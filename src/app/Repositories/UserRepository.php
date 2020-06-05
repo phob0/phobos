@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Repositories;
+namespace Phobos\Framework\App\Repositories;
 
 
 use App\Models\PhobosUser;
