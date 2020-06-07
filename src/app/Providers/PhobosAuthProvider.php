@@ -1,10 +1,11 @@
 <?php
 
-namespace Phobos\Framework\App\Traits;
+namespace Phobos\Framework\App\Providers;
 
 use Laravel\Passport\Passport;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 
-trait PhobosAuth
+class PhobosAuthProvider extends AuthServiceProvider
 {
     /**
      * The policy mappings for the application.
