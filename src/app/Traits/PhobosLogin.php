@@ -2,6 +2,7 @@
 
 namespace Phobos\Framework\App\Traits;
 
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 trait PhobosLogin
