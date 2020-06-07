@@ -4,6 +4,9 @@ namespace Phobos\Framework\App\Traits;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Facades\Cookie;
 
 trait PhobosLogin
 {
