@@ -32,6 +32,11 @@ class CrudPhobosCommand extends Command
     {
         $name = ucfirst($this->argument('name'));
         $prefix = strtolower($this->argument('name')).'s';
+
+        // Create the CRUD Migration and show output
+        Artisan::call('phobos:migration', ['name' => 'create_'.strtolower($this->argument('name')).'_table', '--fields' => "name:string(50)"]);
+        echo Artisan::output();
+
         // Create the CRUD Controller and show output
         Artisan::call('phobos:crud-controller', ['name' => $name.'Controller', '--class-name' => $name]);
         echo Artisan::output();

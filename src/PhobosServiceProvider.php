@@ -30,6 +30,7 @@ class PhobosServiceProvider extends ServiceProvider
         \Phobos\Framework\App\Console\Commands\PublishPhobosUserRoleModel::class,
         \Phobos\Framework\App\Console\Commands\PublishPhobosMiddleware::class,
         \Phobos\Framework\App\Console\Commands\PublishPhobosAppController::class,
+        \Phobos\Framework\App\Console\Commands\MigrationPhobosCommand::class,
     ];
 
     public function boot(\Illuminate\Routing\Router $router)

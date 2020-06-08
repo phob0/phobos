@@ -36,10 +36,10 @@ return [
     ],
 
     /*
-|--------------------------------------------------------------------------
-| File System
-|--------------------------------------------------------------------------
-*/
+    |--------------------------------------------------------------------------
+    | File System
+    |--------------------------------------------------------------------------
+    */
 
     // Phobos\Framework sets up its own filesystem disk, just like you would by
     // adding an entry to your config/filesystems.php. It points to the root
@@ -47,4 +47,23 @@ return [
     //
     // You can rename this disk here. Default: root
     'root_disk_name' => 'root',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Where the templates for the generators are stored...
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'migration_template_path' => base_path('vendor/phobos/framework/src/Generators/templates/migration.txt'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Where the generated files will be saved...
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'migration_target_path'   => base_path('database/migrations'),
+
 ];
