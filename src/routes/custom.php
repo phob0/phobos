@@ -8,6 +8,7 @@
 
 Route::group([
     'middleware' => ['auth:api'],
+    'prefix' => 'api',
     'namespace'  => 'App\Http\Controllers',
 ], function () { // custom routes
 }); // this should be the absolute last line of this file

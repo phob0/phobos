@@ -25,7 +25,7 @@ class {{ class }}
      */
     public function viewAny(PhobosUser $user)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class {{ class }}
      */
     public function view(PhobosUser $user, Dummy $dummy)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -48,7 +48,7 @@ class {{ class }}
      */
     public function create(PhobosUser $user)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -60,7 +60,7 @@ class {{ class }}
      */
     public function update(PhobosUser $user, Dummy $dummy)
     {
-        return false;
+        return true;
     }
 
     /**
@@ -72,7 +72,7 @@ class {{ class }}
      */
     public function delete(PhobosUser $user, Dummy $dummy)
     {
-        return false;
+        return true;
     }
 
 }

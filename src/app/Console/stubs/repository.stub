@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use Phobos\Framework\Editables\EditableModel;
+use Phobos\Framework\Editables\EditableRepository;
 use App\Models\Dummy;
 use DB;
 

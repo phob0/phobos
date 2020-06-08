@@ -157,4 +157,16 @@ class CrudModelPhobosCommand extends GeneratorCommand
         ];
     }
 
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+            ['class-name', null, InputOption::VALUE_OPTIONAL, 'Name of the classes'],
+        ];
+    }
+
 }

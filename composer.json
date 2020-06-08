@@ -5,7 +5,8 @@
     "require": {
         "laravel/passport": "^7.5",
         "barryvdh/laravel-cors": "^0.11",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "spatie/laravel-translatable": "^4.2"
     },
     "autoload": {
         "files": [

@@ -32,8 +32,8 @@ class MigrationPhobosCommand extends GeneratorCommand
     {
         parent::fire();
 
-        $this->call('dump-autoload');
-
+        //$this->call('dump-autoload');
+        exec("php composer dump-autoload");
     }
 
     /**
