@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use App\Http\Resources\DummyResource;
 use App\Repositories\DummyRepository;
-use App\Models\Dummy;
+use App\Dummy;
 use Illuminate\Http\Request;
 use Phobos\Framework\Editables\EditableController;
 

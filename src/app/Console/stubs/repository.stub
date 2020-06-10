@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use Phobos\Framework\Editables\EditableModel;
 use Phobos\Framework\Editables\EditableRepository;
-use App\Models\Dummy;
+use App\Dummy;
 use DB;
 
 class DummyRepository extends EditableRepository
@@ -41,13 +41,10 @@ class DummyRepository extends EditableRepository
 
     public function create(array $data)
     {
-        $expId = $data['experience_id'];
-        $record = new Dummy(['name' => $data['name']]);
+        $record = new Test(['name' => $data['name']]);
 
-        $ret = DB::transaction(function () use ($record, $expId) {
+        $ret = DB::transaction(function () use ($record) {
             $record->save();
-            $record->experiences()->attach([$expId]);
-
             return $record->id;
         });
 

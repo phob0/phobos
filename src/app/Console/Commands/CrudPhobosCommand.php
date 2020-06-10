@@ -73,7 +73,7 @@ class CrudPhobosCommand extends Command
         echo Artisan::output();
 
         // Create the CRUD Migration and show output
-        Artisan::call('phobos:migration', ['migrationName' => 'create_'.strtolower($this->argument('name')).'_table', '--fields' => "name:string(50)"]);
+        Artisan::call('phobos:migration', ['migrationName' => 'create_'.$prefix.'_table', '--fields' => "name:string(50)"]);
         echo Artisan::output();
     }
 }

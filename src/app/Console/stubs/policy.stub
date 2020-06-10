@@ -2,8 +2,8 @@
 
 namespace DummyNamespace;
 
-use App\Models\Dummy;
-use App\Models\PhobosUser;
+use App\Dummy;
+use App\PhobosUser;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class {{ class }}

@@ -33,36 +33,13 @@
               <div class="row q-col-gutter-sm">
 
                 <q-input
-                  :class="locale.code === defaultLocale ? 'col-xs-12' : 'col-xs-6'"
-                  :key="`name-${locale.code}`"
-                  :label="locale.code === defaultLocale ? 'Name' : ''"
-                  maxlength="100"
+                  autocomplete="off"
+                  class="col-xs-12"
+                  label="Name"
                   outlined
-                  :rules="form.rules.name[locale.code]"
-                  v-for="locale in locales"
-                  v-model="form.item.name[locale.code]"
-                  v-show="name_translating || locale.code === defaultLocale"
-                >
-                  <template v-slot:append>
-                    <span class="kps-input-locale">{{ locale.code }}</span>
-
-                    <span
-                      class="on-right"
-                      v-if="locale.code === defaultLocale"
-                    >
-                      <q-btn
-                        @click="name_translating = !name_translating"
-                        color="secondary"
-                        dense
-                        flat
-                        icon="fal fa-globe-europe"
-                        round
-                      >
-                        <q-tooltip>Translations</q-tooltip>
-                      </q-btn>
-                    </span>
-                  </template>
-                </q-input>
+                  :rules="form.rules.name"
+                  v-model="form.item.name"
+                />
 
               </div>
 
@@ -116,10 +93,10 @@ export default {
     },
     setNewItemFields() {
       return {
-        translatables: [
+        translatables: [],
+        string: [
           'name'
         ],
-        string: [],
         number: [
           'id'
         ],

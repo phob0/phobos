@@ -62,10 +62,10 @@ class Install extends Command
 //        $this->line(" Generating users table (using Laravel's default migrations)");
 //        $this->executeProcess('php artisan migrate');
 
-        $this->line(" Creating App\Models\PhobosUser.php");
+        $this->line(" Creating App\PhobosUser.php");
         $this->executeProcess('php artisan phobos:publish-user-model');
 
-        $this->line(" Creating App\Models\UserRole.php");
+        $this->line(" Creating App\UserRole.php");
         $this->executeProcess('php artisan phobos:publish-user-role-model');
 
         $this->line(" Creating App\Http\Controllers\AppController.php");

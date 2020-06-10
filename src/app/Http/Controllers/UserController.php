@@ -5,7 +5,7 @@ namespace Phobos\Framework\App\Http\Controllers;
 use Phobos\Framework\Editables\EditableController;
 use Phobos\Framework\App\Resources\UserResource;
 use Phobos\Framework\App\Repositories\UserRepository;
-use App\Models\PhobosUser;
+use App\PhobosUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;

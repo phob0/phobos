@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\PhobosUser::class,
+            'model' => App\PhobosUser::class,
         ],
 
         // 'users' => [

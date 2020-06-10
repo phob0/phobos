@@ -19,7 +19,7 @@ class PublishPhobosUserModel extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Publish the PhobosUser model to App\Models\PhobosUser';
+    protected $description = 'Publish the PhobosUser model to App\PhobosUser';
 
     /**
      * Get the stub file for the generator.
@@ -38,7 +38,7 @@ class PublishPhobosUserModel extends GeneratorCommand
      */
     public function handle()
     {
-        $destination_path = $this->laravel['path'].'/Models/PhobosUser.php';
+        $destination_path = $this->laravel['path'].'/PhobosUser.php';
 
         if ($this->files->exists($destination_path)) {
             $this->error('PhobosUser model already exists!');
@@ -50,7 +50,7 @@ class PublishPhobosUserModel extends GeneratorCommand
 
         $this->files->put($destination_path, $this->buildClass());
 
-        $this->info($this->laravel->getNamespace().'Models\PhobosUser.php created successfully.');
+        $this->info($this->laravel->getNamespace().'PhobosUser.php created successfully.');
     }
 
     /**
@@ -78,10 +78,10 @@ class PublishPhobosUserModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace().'Models;', $stub);
+        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace(), $stub);
 
-        if (!$this->files->exists($this->laravel['path'].'/User.php') && $this->files->exists($this->laravel['path'].'/Models/User.php')) {
-            $stub = str_replace($this->laravel->getNamespace().'User', $this->laravel->getNamespace().'Models\User', $stub);
+        if (!$this->files->exists($this->laravel['path'].'/PhobosUser.php') && $this->files->exists($this->laravel['path'].'/PhobosUser.php')) {
+            $stub = str_replace($this->laravel->getNamespace().'User', $this->laravel->getNamespace().'PhobosUser', $stub);
         }
 
         return $stub;

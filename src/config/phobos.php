@@ -24,9 +24,10 @@ return [
 
     'api_route_middleware' => [
         'push' => [
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Barryvdh\Cors\HandleCors::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Barryvdh\Cors\HandleCors::class
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            "throttle:60,1"
         ],
         'prepend' => App\Http\Middleware\ExtractApiTokenFromCookie::class
     ],

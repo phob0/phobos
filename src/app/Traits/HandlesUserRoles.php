@@ -4,7 +4,7 @@
 namespace Phobos\Framework\App\Traits;
 
 
-use App\Models\UserRole;
+use App\UserRole;
 
 trait HandlesUserRoles
 {

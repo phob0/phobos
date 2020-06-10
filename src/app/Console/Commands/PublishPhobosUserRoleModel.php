@@ -19,7 +19,7 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Publish the UserRole model to App\Models\UserRole';
+    protected $description = 'Publish the UserRole model to App\UserRole';
 
     /**
      * Get the stub file for the generator.
@@ -38,7 +38,7 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
      */
     public function handle()
     {
-        $destination_path = $this->laravel['path'].'/Models/UserRole.php';
+        $destination_path = $this->laravel['path'].'/UserRole.php';
 
         if ($this->files->exists($destination_path)) {
             $this->error('UserRole model already exists!');
@@ -50,7 +50,7 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
 
         $this->files->put($destination_path, $this->buildClass());
 
-        $this->info($this->laravel->getNamespace().'Models\UserRole.php created successfully.');
+        $this->info($this->laravel->getNamespace().'UserRole.php created successfully.');
     }
 
     /**
@@ -78,10 +78,10 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace().'Models;', $stub);
+        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace(), $stub);
 
-        if (!$this->files->exists($this->laravel['path'].'/UserRole.php') && $this->files->exists($this->laravel['path'].'/Models/UserRole.php')) {
-            $stub = str_replace($this->laravel->getNamespace().'UserRole', $this->laravel->getNamespace().'Models\UserRole', $stub);
+        if (!$this->files->exists($this->laravel['path'].'/UserRole.php') && $this->files->exists($this->laravel['path'].'/UserRole.php')) {
+            $stub = str_replace($this->laravel->getNamespace().'UserRole', $this->laravel->getNamespace().'UserRole', $stub);
         }
 
         return $stub;

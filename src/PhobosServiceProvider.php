@@ -181,7 +181,7 @@ class PhobosServiceProvider extends ServiceProvider
     private function setupMorphMap()
     {
         Relation::morphMap([
-            'users' => \App\Models\PhobosUser::class,
+            'users' => \App\PhobosUser::class,
         ]);
     }
 

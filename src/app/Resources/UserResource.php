@@ -3,7 +3,7 @@
 
 namespace Phobos\Framework\App\Resources;
 
-use App\Models\PhobosUser;
+use App\PhobosUser;
 use Phobos\Framework\Editables\EditableResource;
 
 
