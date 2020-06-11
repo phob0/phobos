@@ -48,7 +48,6 @@ class Install extends Command
         $this->info(" Phobos\Framework installation started. Please wait...");
         $this->progressBar->advance();
 
-        // put --force when publish on git
         $this->line(' Publishing configs and VueJS/QuasarJS files');
         $this->executeProcess('php artisan vendor:publish --provider="Phobos\Framework\PhobosServiceProvider" --force');
 
