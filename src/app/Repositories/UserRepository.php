@@ -4,7 +4,7 @@
 namespace Phobos\Framework\App\Repositories;
 
 
-use App\PhobosUser;
+use Phobos\Framework\App\Models\PhobosUser;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

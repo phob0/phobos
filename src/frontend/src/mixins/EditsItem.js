@@ -37,7 +37,7 @@ export default {
      * @returns {string}
      */
     formTitle() {
-      return this.form.item.name[this.defaultLocale]
+      return this.form.item.name !== 'undefined' ? (Array.isArray(this.form.item.name) ? this.form.item.name[this.defaultLocale] : this.form.item.name) : (Array.isArray(this.form.item.setting) ? this.form.item.setting[this.defaultLocale] : this.form.item.setting)
     },
 
     editing() {

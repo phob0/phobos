@@ -4,6 +4,7 @@ namespace Phobos\Framework;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Http\Kernel;
@@ -49,7 +50,6 @@ class PhobosServiceProvider extends ServiceProvider
         $this->setupMorphMap();
         self::setupCustomCache();
         $this->setupRoutes($this->app->router);
-        $this->setupCustomRoutes($this->app->router);
         $this->setupRootPath();
         $this->forceHttps();
         $this->registerMiddlewareGroup($this->app->router);
@@ -61,6 +61,10 @@ class PhobosServiceProvider extends ServiceProvider
         // register the current package
         $this->app->bind('phobos', function ($app) {
             return new Phobos($app);
+        });
+
+        $this->app->router->group(['api'], function () {
+            require __DIR__.'/routes/phobos.php';
         });
 
         $this->commands($this->commands);
@@ -77,14 +81,6 @@ class PhobosServiceProvider extends ServiceProvider
         }
 
         $this->loadRoutesFrom($routeFilePathInUse);
-    }
-
-    public function setupCustomRoutes(Router $router)
-    {
-        // if the custom routes file is published, register its routes
-        if (file_exists(base_path().$this->customRoutesFilePath)) {
-            $this->loadRoutesFrom(base_path().$this->customRoutesFilePath);
-        }
     }
 
     public function registerMiddlewareGroup(Router $router)

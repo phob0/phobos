@@ -3,7 +3,8 @@
 namespace Phobos\Framework\App\Policies;
 
 use Phobos\Framework\App\Models\Setting;
-use App\PhobosUser;
+//use App\PhobosUser;
+use Phobos\Framework\App\Models\PhobosUser;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SettingPolicy

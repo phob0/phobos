@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Routing\Router;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::prefix('api')->middleware('auth:api')->namespace('Phobos\Framework\App\Http\Controllers')->group(function() {
+Route::prefix('api')->middleware(['api','auth:api'])->namespace('Phobos\Framework\App\Http\Controllers')->group(function() {
 
     Route::prefix('settings')->group(function() {
         Route::get('', 'SettingController@list');
@@ -31,11 +31,11 @@ Route::prefix('api')->middleware('auth:api')->namespace('Phobos\Framework\App\Ht
     });
 });
 
-Route::middleware('auth:api')->namespace('App\Http\Controllers')->group(function() {
+Route::middleware(['api','auth:api'])->namespace('App\Http\Controllers')->group(function() {
     Route::post('logout', 'Auth\LoginController@apiLogout');
 });
 
-Route::prefix('api')->middleware('auth:api')->namespace('App\Http\Controllers')->group(function() {
+Route::prefix('api')->middleware(['api','auth:api'])->namespace('App\Http\Controllers')->group(function() {
     Route::get('me', 'AppController@me');
 
     Route::post('upload', 'AppController@upload');

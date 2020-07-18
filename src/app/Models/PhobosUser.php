@@ -22,6 +22,8 @@ class PhobosUser extends EditableModel implements AuthenticatableContract, Autho
 
     protected $table = 'users';
 
+    protected $connection = 'mysql';
+
     /**
      * The attributes that are mass assignable.
      *

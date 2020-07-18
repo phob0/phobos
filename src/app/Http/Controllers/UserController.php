@@ -5,11 +5,12 @@ namespace Phobos\Framework\App\Http\Controllers;
 use Phobos\Framework\Editables\EditableController;
 use Phobos\Framework\App\Resources\UserResource;
 use Phobos\Framework\App\Repositories\UserRepository;
-use App\PhobosUser;
+use Phobos\Framework\App\Models\PhobosUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends EditableController
 {
@@ -35,6 +36,7 @@ class UserController extends EditableController
 
     public function item(PhobosUser $user)
     {
+        //cdd($user);
         $this->authorize('view', $user);
 
         return UserResource::make($user);

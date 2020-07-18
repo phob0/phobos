@@ -2,7 +2,7 @@
 
 namespace Phobos\Framework\App\Policies;
 
-use App\PhobosUser;
+use Phobos\Framework\App\Models\PhobosUser;
 
 class UserPolicy
 {

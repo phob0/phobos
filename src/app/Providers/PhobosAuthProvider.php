@@ -13,7 +13,7 @@ class PhobosAuthProvider extends AuthServiceProvider
      * @var array
      */
     protected $policies = [
-        \App\PhobosUser::class => \Phobos\Framework\App\Policies\UserPolicy::class,
+        \Phobos\Framework\App\Models\PhobosUser::class => \Phobos\Framework\App\Policies\UserPolicy::class,
         \Phobos\Framework\App\Models\Setting::class => \Phobos\Framework\App\Policies\SettingPolicy::class,
     ];
 
