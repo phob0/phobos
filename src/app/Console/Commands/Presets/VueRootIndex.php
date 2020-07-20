@@ -29,14 +29,14 @@ class VueRootIndex
 
         $data = array_map(function($data) use ($name, $modulesDummyTag){
             if (stristr($data, $modulesDummyTag)) {
-                return "      ".$name.",\n".$modulesDummyTag."\n";
+                return "      ".$name.",\n      ".$modulesDummyTag."\n";
             }
             return $data;
         },$data);
 
         $data = array_map(function($data) use ($name, $moduleDummyTag){
             if (stristr($data, $moduleDummyTag)) {
-                return "    module.hot.accept('./".$name."', () => {\n      const newModule = require('./".$name."').default\n      Store.hotUpdate({ modules: { ".$name.": newModule } })\n    })\n\n".$moduleDummyTag."\n";
+                return "    module.hot.accept('./".$name."', () => {\n      const newModule = require('./".$name."').default\n      Store.hotUpdate({ modules: { ".$name.": newModule } })\n    })\n\n    ".$moduleDummyTag."\n";
             }
             return $data;
         },$data);

@@ -21,7 +21,7 @@ class CrudPhobosCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a CRUD interface: Controller, Model, Repository, Policy, Request';
+    protected $description = 'Create a CRUD interface: Migration, Controller, Model, Repository, Policy, Request';
 
     /**
      * Execute the console command.

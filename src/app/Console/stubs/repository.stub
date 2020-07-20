@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Repositories;
+namespace App\Http\Repositories;
 
 
 use Phobos\Framework\Editables\EditableModel;
@@ -41,7 +41,7 @@ class DummyRepository extends EditableRepository
 
     public function create(array $data)
     {
-        $record = new Test(['name' => $data['name']]);
+        $record = new Dummy(['name' => $data['name']]);
 
         $ret = DB::transaction(function () use ($record) {
             $record->save();

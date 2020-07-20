@@ -16,13 +16,19 @@ class {{ class }} extends EditableResource
     {
         $collection = [
             'id' => $this->id,
+            'name' => $this->name,
         ];
 
+        /**
+        *
+        * If you have translations, remove field from above and uncomment this part.
+        *
         $collection += static::$forList ? [
             'name' => $this->name,
         ] : [
             'name' => $this->translations['name'],
         ];
+        /*
 
         $collection += [
             'updated_at' => $this->updated_at->toDateTimeString(),

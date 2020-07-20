@@ -20,7 +20,7 @@ class VueSideMenu
 
         $data = array_map(function($data) use ($name, $sidemenuDummyTag){
             if (stristr($data, $sidemenuDummyTag)) {
-                return "  }, {\n    code: '".$name."s',\n    label: '".ucfirst($name)."s',\n    caption: '".ucfirst($name)."s module',\n    icon: 'fal fa-sun-o',\n    route: '/".$name."s',\n    children: [],\n    link: null,\n    target: null\n  }".$sidemenuDummyTag."]\n";
+                return "  }, {\n    code: '".$name."s',\n    label: '".ucfirst($name)."s',\n    caption: '".ucfirst($name)."s module',\n    icon: 'fal fa-sun',\n    route: '/".$name."s',\n    children: [],\n    link: null,\n    target: null\n  }".$sidemenuDummyTag."]\n";
             }
             return $data;
         },$data);
