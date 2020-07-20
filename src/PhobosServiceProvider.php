@@ -38,7 +38,7 @@ class PhobosServiceProvider extends ServiceProvider
     {
         // use the vendor configuration file as fallback
         $this->mergeConfigFrom(
-            __DIR__.'/config/phobos.php', 'config'
+            __DIR__.'/config/phobos.php', 'phobos'
         );
 
         // add the root disk to filesystem configuration
