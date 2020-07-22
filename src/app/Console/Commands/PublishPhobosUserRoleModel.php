@@ -78,7 +78,7 @@ class PublishPhobosUserRoleModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\App\Models;', 'App', $stub);
+        $stub = str_replace('Phobos\Framework\App\Models;', 'App;', $stub);
 
         if (!$this->files->exists($this->laravel['path'].'/UserRole.php') && $this->files->exists($this->laravel['path'].'/UserRole.php')) {
             $stub = str_replace($this->laravel->getNamespace().'UserRole', $this->laravel->getNamespace().'UserRole', $stub);
