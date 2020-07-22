@@ -88,7 +88,8 @@ trait PhobosLogin
                     'scope' => '',
                 ],
             ]);
-        } catch (ClientException $ex) {
+        } catch (GuzzleHttp\Exception\RequestException $ex) {
+            \Log::debug('API call exception: ' . $ex->getResponse()->getBody()->getContents());
             return false;
         }
 

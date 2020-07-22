@@ -29,7 +29,7 @@ class VueRootIndex
 
         $data = array_map(function($data) use ($name, $modulesDummyTag){
             if (stristr($data, $modulesDummyTag)) {
-                return "      ".$name.",\n      ".$modulesDummyTag."\n";
+                return "    ".$name.",\n    ".$modulesDummyTag."\n";
             }
             return $data;
         },$data);

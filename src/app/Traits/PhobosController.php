@@ -14,6 +14,7 @@ trait PhobosController
 
     public function apiError($message = 'A server error has occurred', $extra = [])
     {
+        cdd($message);
         return response([
             'errors' => true,
             'message' => $message,

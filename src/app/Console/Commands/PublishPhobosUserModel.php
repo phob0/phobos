@@ -78,7 +78,7 @@ class PublishPhobosUserModel extends GeneratorCommand
      */
     protected function makeReplacements(&$stub)
     {
-        $stub = str_replace('Phobos\Framework\App\Models;', $this->laravel->getNamespace(), $stub);
+        $stub = str_replace('Phobos\Framework\App\Models;', 'App', $stub);
 
         if (!$this->files->exists($this->laravel['path'].'/PhobosUser.php') && $this->files->exists($this->laravel['path'].'/PhobosUser.php')) {
             $stub = str_replace($this->laravel->getNamespace().'User', $this->laravel->getNamespace().'PhobosUser', $stub);

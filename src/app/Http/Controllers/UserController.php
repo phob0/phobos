@@ -36,7 +36,6 @@ class UserController extends EditableController
 
     public function item(PhobosUser $user)
     {
-        //cdd($user);
         $this->authorize('view', $user);
 
         return UserResource::make($user);
