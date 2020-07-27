@@ -142,6 +142,7 @@ class PhobosServiceProvider extends ServiceProvider
         $phobos_config = [__DIR__.'/config/phobos.php' => config_path('phobos.php')];
         $phobos_auth = [__DIR__.'/config/auth.php' => config_path('auth.php')];
         $phobos_cache = [__DIR__.'/config/cache.php' => config_path('cache.php')];
+        $phobos_cors = [__DIR__.'/config/cors.php' => config_path('cors.php')];
 
 //        $phobos_env = [__DIR__.'.env' => base_path()];
         $phobos_custom_routes_file = [__DIR__.$this->customRoutesFilePath => base_path($this->customRoutesFilePath)];
@@ -149,6 +150,7 @@ class PhobosServiceProvider extends ServiceProvider
         $this->publishes($phobos_config, 'config');
         $this->publishes($phobos_auth, 'config');
         $this->publishes($phobos_cache, 'config');
+        $this->publishes($phobos_cors, 'config');
 //        $this->publishes($phobos_env, '');
 
         $this->publishes([

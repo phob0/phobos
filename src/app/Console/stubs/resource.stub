@@ -28,7 +28,7 @@ class {{ class }} extends EditableResource
         ] : [
             'name' => $this->translations['name'],
         ];
-        /*
+        */
 
         $collection += [
             'updated_at' => $this->updated_at->toDateTimeString(),

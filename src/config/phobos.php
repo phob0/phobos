@@ -29,7 +29,7 @@ return [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             "throttle:60,1"
         ],
-        'prepend' => App\Http\Middleware\ExtractApiTokenFromCookie::class
+        'prepend' => Phobos\Framework\App\Http\Middleware\ExtractApiTokenFromCookie::class
     ],
 
     'remove_middlewares' => [

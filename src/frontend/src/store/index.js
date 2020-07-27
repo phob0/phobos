@@ -19,8 +19,8 @@ Vue.use(Vuex)
 
 export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
-    /* { modulesDummy } */
     modules: {
+      /* { modulesDummy } */
       setting,
       user
     },
