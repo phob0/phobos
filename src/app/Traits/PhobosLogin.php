@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Route;
 
 trait PhobosLogin
 {
@@ -69,31 +70,33 @@ trait PhobosLogin
 
     protected function attemptApiLogin(Request $request)
     {
-        $http = new Client;
-
         $apiClient = \Cache::tags(['auth'])->remember('oauth_password_client', 86400, function() {
             return (array)\DB::table('oauth_clients')
                 ->whereName($this->oauthClientName)
                 ->first(['id', 'secret']);
         });
 
+        $oauthRequest = Request::create('/oauth/token', 'POST');
+
+        $params = [
+            'grant_type' => 'password',
+            'client_id' => $apiClient['id'],
+            'client_secret' => $apiClient['secret'],
+            'username' => $request->get('email'),
+            'password' => $request->get('password'),
+            'scope' => '',
+        ];
+
+        $request->request->add($params);
+
         try {
-            $response = $http->post(url('/oauth/token'), [
-                'form_params' => [
-                    'grant_type' => 'password',
-                    'client_id' => $apiClient['id'],
-                    'client_secret' => $apiClient['secret'],
-                    'username' => $request->get('email'),
-                    'password' => $request->get('password'),
-                    'scope' => '',
-                ],
-            ]);
+            $response = Route::dispatch($oauthRequest);
         } catch (GuzzleHttp\Exception\RequestException $ex) {
-            \Log::debug('API call exception: ' . $ex->getResponse()->getBody()->getContents());
+            \Log::debug('API call exception: ' . $ex->getContent());
             return false;
         }
 
-        return json_decode((string)$response->getBody(), true);
+        return json_decode((string)$response->getContent(), true);
     }
 
     public function apiLogout(Request $request)

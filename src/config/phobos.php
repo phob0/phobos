@@ -15,7 +15,7 @@ return [
     // Project name.
     'project_name' => 'Phobos',
 
-    'dynamic_url' => env('DOCKER_URL', env('APP_URL', 'http://localhost')),
+    'dynamic_url' => env('APP_URL', 'http://localhost'),
 
     'middleware' => [
         'push' => [],
